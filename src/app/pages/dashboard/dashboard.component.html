@@ -1,0 +1,48 @@
+<div class="overallContainer">
+  <div class="identity">
+    <h1>{{myUser.username}}</h1>
+  </div>
+  <div>
+    <h2>My Dashboard</h2>
+    <p>{{testString}}</p>
+  </div>
+
+  <div class="board">
+    <div>
+      <table>
+        <tr>
+          <th>Activity</th>
+          <th>Time spend on</th>
+          <th>Add training time</th>
+        </tr>
+        <tr *ngFor="let activity of activities">
+          <td>{{activity.name}}</td>
+          <td>{{activity.trainingOn}} h</td>
+          <td class="addTimeSpent">
+            <input [(ngModel)]="activity.timeAdding" type="number" min="0" max="6" placeholder="0">
+            <button type="button" (click)="addTrainingTime(activity)">+</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="addAct">
+      <label for="addActivity">New activity: </label>
+      <input [(ngModel)]='nameAdded' type="text" name="addActivity" placeholder="Name of your activity">
+      <button (click)="addActivity()" class="addButton">Add</button>
+    </div>
+    <div>
+      <div class="chart">
+        <canvas baseChart
+          [data]="pieChartData"
+          [labels]="pieChartLabels"
+          [chartType]="pieChartType"
+          [options]="pieChartOptions"
+          [colors]="pieChartColors"
+          [legend]="pieChartLegend">
+        </canvas>
+      </div>
+    </div>
+  </div>
+
+</div>

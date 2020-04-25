@@ -1,0 +1,75 @@
+/* OVERALL */
+.overallContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 40px;
+  color: #552FAB;
+  margin: 0px 0px 26px 0px;
+}
+h2 {
+  font-size: 30px;
+  color: #552FAB;
+  margin: 0px 0px 26px 0px;
+}
+
+/* TABLE */
+table {
+  border-collapse: collapse;
+  overflow: hidden;
+  width: 500px;
+  border-radius: 10px;
+}
+th, td {
+  text-align: center;
+  font-size: 16px;
+  padding: 10px;
+}
+th {
+  background-color: rebeccapurple;
+  color: #fff;
+}
+
+button {
+  height: 30px;
+  width: 30px;
+  border: 0;
+  color: #fff;
+  border-radius: 15px;
+  background-image: linear-gradient(#512DA8, #673AB7);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.addButton {
+  height: 30px;
+  width: 80px;
+}
+
+.addTimeSpent {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.addAct {
+  margin: 50px 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+
+.chart {
+  height: 500px;
+  width: 500px;
+}

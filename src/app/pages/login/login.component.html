@@ -1,0 +1,38 @@
+<body>
+  <form *ngIf="login === true" class="vldform vldauth" action="login.php" method="POST">
+    <h1>Log in</h1>
+    <input class="vldform__textbox" type="text" name="username" placeholder="Username" required>
+    <input class="vldform__textbox" type="password" name="pass" id="" placeholder="Password" required>
+    <a (click)="showrecoveryform()" class="vldform__recoverypassword" href="#">Forgot password?</a>
+    <input class="vldform__button" type="submit" value="Log in">
+    <p class="vldform__signup">Don't have account?
+      <a (click)="switchForm()" href="#">Sign up</a>
+    </p>
+  </form>
+
+  <form *ngIf="signup === true" class="vldform vldreg" action="register.php" method="POST">
+    <h1>Sign up</h1>
+    <input class="vldform__textbox" type="text" name="username" placeholder="Username" required>
+    <input class="vldform__textbox" type="email" name="email" id="" placeholder="Email" required>
+    <input class="vldform__textbox" type="password" name="pass" id="" placeholder="Password" required>
+    <input class="vldform__textbox" type="password" name="pass2" id="" placeholder="Password again" required>
+    <input class="vldform__button" type="submit" value="Sign up">
+    <p class="vldform__signup">You already have account?
+      <a (click)="switchForm()" href="#">Log in</a>
+    </p>
+  </form>
+
+  <form *ngIf="forgotPassword === true" class="vldform vldrecpass" action="recovery.php" method="POST">
+    <h1>Password recovery</h1>
+    <input class="vldform__textbox" type="email" name="email" id="" placeholder="Email" required>
+    <input class="vldform__button" type="submit" value="Recovery">
+    <p class="vldform__signup">Go back to log in
+      <a (click)="goBackForm()" href="#">Log in</a>
+    </p>
+  </form>
+</body>
+
+
+<a routerLink='/dashboard'>LIEN TEMPORAIRE VERS LE DASHBOARD </a>
+<br>
+<a routerLink='/chart'>LIEN TEMPORAIRE VERS LA PAGE SOCIAL</a>
