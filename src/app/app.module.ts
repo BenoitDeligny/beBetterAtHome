@@ -25,7 +25,8 @@ import { ChartComponent } from './pages/dashboard/chart/chart.component';
     AppRoutingModule,
     ChartsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

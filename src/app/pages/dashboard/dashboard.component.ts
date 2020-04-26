@@ -13,11 +13,10 @@ import { ApiServiceService } from 'src/app/services/api-service.service';
 
 export class DashboardComponent implements OnInit {
 
-  myUser = new User(1, 'Benoit', 'email@email.com', 'pouet');
-
+  myUser: User = new User('', '', '', '', 0);
   activities: Activity[] = [];
-  currentId = 0;
   nameAdded = '';
+
 
   public pieChartOptions: ChartOptions = {
     responsive: true,
@@ -35,14 +34,19 @@ export class DashboardComponent implements OnInit {
     },
   ];
 
-  testString = '';
-
   constructor(private serviceOfApi: ApiServiceService) { }
 
   ngOnInit(): void {
+
+    this.serviceOfApi.getUserInfo().subscribe(
+      (userInfos) => {
+        this.myUser = userInfos;
+      }
+    );
+
     this.serviceOfApi.getDailyTraining().subscribe(
-      (data) => {
-        this.testString = data.status;
+      (dailyTraining) => {
+        this.myUser.dailyTraining = dailyTraining.resultat;
       }
     );
   }
@@ -63,8 +67,14 @@ export class DashboardComponent implements OnInit {
 
   addActivity() {
     if (this.nameAdded !== '') {
-      this.activities.push(new Activity(this.currentId++, this.nameAdded, 0, 0));
+      const newActivity = new Activity(this.nameAdded);
+
+      this.activities.push(newActivity);
       this.pieChartLabels.push(this.nameAdded);
+
+      this.serviceOfApi.postTraining(newActivity).subscribe((data) => {
+        this.activities.push(data);
+      });
 
       this.nameAdded = '';
     }

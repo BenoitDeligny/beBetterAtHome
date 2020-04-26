@@ -1,5 +1,6 @@
 export class Activity {
-  constructor(public id: number, public name: string, public trainingOn: number, public timeAdding: number) {
+
+  constructor(public description: string, public id?: number, public trainingOn?: number, public timeAdding?: number) {
   }
 
 }
