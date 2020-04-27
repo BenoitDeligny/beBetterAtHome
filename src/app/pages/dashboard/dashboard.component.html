@@ -10,16 +10,22 @@
     <div>
       <table>
         <tr>
-          <th>Activity</th>
-          <th>Time spend on</th>
-          <th>Add training time</th>
+          <th>ID</th>
+          <th>Activité</th>
+          <th>Temps de formation</th>
+          <th>Ajouter du temps</th>
         </tr>
         <tr *ngFor="let activity of activities">
-          <td>{{activity.name}}</td>
-          <td>{{activity.trainingOn}} h</td>
-          <td class="addTimeSpent">
-            <input [(ngModel)]="activity.timeAdding" type="number" min="0" max="6" placeholder="0">
-            <button type="button" (click)="addTrainingTime(activity)">+</button>
+          <td>{{activity.id}}</td>
+          <td>
+            {{activity.description}}
+            <button type="button" (click)="editNameActivity(activity)">?</button>
+          </td>
+          <td class="addTimeSpent">{{activity.trainingOn}} h</td>
+          <td>
+            <input [(ngModel)]="addedTime" type="number" min="0" max="6" placeholder="0">
+            <button type="button" (click)="addTrainingTime(addedTime, activity.id)">+</button>
+            <button type="button" (click)="isPublic(activity)">P</button>
           </td>
         </tr>
       </table>
@@ -28,24 +34,17 @@
     <div class="addAct">
       <label for="addActivity">New activity: </label>
       <input [(ngModel)]='nameAdded' type="text" name="addActivity" placeholder="Name of your activity">
-      <button (click)="addActivity()" class="addButton">Add</button>
+      <button type="button" *ngIf="buttonDisplay" (click)="addActivity()" class="addButton">Add</button>
+      <button type="button" *ngIf="!buttonDisplay"  class="addButton">Edit</button>
     </div>
     <div>
       <div class="chart">
-        <canvas baseChart
-          [data]="pieChartData"
-          [labels]="pieChartLabels"
-          [chartType]="pieChartType"
-          [options]="pieChartOptions"
-          [colors]="pieChartColors"
-          [legend]="pieChartLegend">
+        <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"
+          [options]="pieChartOptions" [colors]="pieChartColors" [legend]="pieChartLegend">
         </canvas>
       </div>
     </div>
+    <button (click)="destroyThemAll()">DESTROY ALL</button>
   </div>
-
-</div>
-
-<div>
-  {{myUser.dailyTraining}}
+  <a [routerLink]="['/social']">Lien vers la page Social</a>
 </div>

@@ -8,16 +8,13 @@ import { ChartComponent } from './pages/dashboard/chart/chart.component';
 
 const routes: Routes = [
   {
-    path: '', component: LoginComponent
+    path: '', component: DashboardComponent
   },
   {
     path: 'dashboard', component: DashboardComponent
   },
   {
     path: 'social', component: SocialComponent
-  },
-  {
-    path: 'chart', component: ChartComponent
   },
   {
     path: '**', component: DashboardComponent
