@@ -52,6 +52,7 @@ export class DashboardComponent implements OnInit {
   myDailyTraining = 0;
   activities: Activity[] = [];
   newActivity: Activity;
+  currentActivity: Activity;
   nameAdded = '';
   addedTime = 0;
 
@@ -122,14 +123,18 @@ export class DashboardComponent implements OnInit {
 
   editNameActivity(activity: Activity) {
     this.nameAdded = activity.description;
+    this.currentActivity = activity;
+    console.log(this.currentActivity);
+
     this.buttonDisplay = false;
   }
 
-  sendNewName(activity: Activity) {
-
-    this.serviceOfApi.editActivity(activity).subscribe(
-      (modifiedName) => {
-        activity.description = modifiedName.description;
+  sendNewName(newName: string) {
+    this.serviceOfApi.editActivity(this.currentActivity).subscribe(
+      () => {
+        // this.currentActivity.description = newName;
+        console.log(this.currentActivity);
+        // this.ngOnInit();
       }
     );
   }

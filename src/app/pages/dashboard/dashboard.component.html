@@ -35,7 +35,7 @@
       <label for="addActivity">New activity: </label>
       <input [(ngModel)]='nameAdded' type="text" name="addActivity" placeholder="Name of your activity">
       <button type="button" *ngIf="buttonDisplay" (click)="addActivity()" class="addButton">Add</button>
-      <button type="button" *ngIf="!buttonDisplay"  class="addButton">Edit</button>
+      <button type="button" *ngIf="!buttonDisplay" (click)="sendNewName(nameAdded)"  class="addButton">Edit</button>
     </div>
     <div>
       <div class="chart">
