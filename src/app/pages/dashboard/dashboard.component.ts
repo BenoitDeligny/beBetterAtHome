@@ -31,18 +31,28 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // Récupération des infos Utilisateur
     this.serviceOfApi.getUserInfo().subscribe(
       (userInfos) => {
         this.myUser = userInfos;
       }
     );
 
+    // Récupération des activités de l'utilisateur
     this.serviceOfApi.getActivities().subscribe(
       (activities) => {
         this.activities = activities;
+        for (const activity of this.activities) {
+          this.serviceOfApi.getActivityTimeTraining(activity.id).subscribe(
+            (time) => {
+              activity.trainingOn = time.resultat;
+            }
+          );
+        }
       }
     );
 
+    // Récupération du temps d'entrainement total sur la journée
     this.serviceOfApi.getDailyTraining().subscribe(
       (dailyTraining) => {
         this.myDailyTraining = dailyTraining.resultat;

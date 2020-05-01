@@ -17,9 +17,6 @@ const routes: Routes = [
     path: 'social', component: SocialComponent
   },
   {
-    path: 'chart', component: ChartComponent
-  },
-  {
     path: '**', component: DashboardComponent
   }
 ];
