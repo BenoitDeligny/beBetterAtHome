@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Activity } from 'src/app/models/activityClass';
 import { User } from 'src/app/models/userClass';
 import { ApiServiceService } from 'src/app/services/api-service.service';
@@ -13,10 +13,9 @@ import { TimeAdded } from 'src/app/models/time-added';
 export class DashboardComponent implements OnInit {
 
 
-  constructor(private serviceOfApi: ApiServiceService) { }
+  constructor(private serviceOfApi: ApiServiceService) {}
 
   // RELOAD CHART AFTER NGONINIT
-
 
   // Variable de récupération des valeurs
   myUser: User = new User('', '', '', '', 0);
@@ -88,7 +87,6 @@ export class DashboardComponent implements OnInit {
   editNameActivity(activity: Activity) {
     this.nameAdded = activity.description;
     this.currentActivity = activity;
-    console.log(this.currentActivity);
     this.buttonDisplay = false;
   }
   sendNewName(newName: string) {

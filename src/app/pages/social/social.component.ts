@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiServiceService } from 'src/app/services/api-service.service';
-import { ChartOptions, ChartType } from 'chart.js';
-import { Label } from 'ng2-charts';
 import { Activity } from 'src/app/models/activityClass';
+import { User } from 'src/app/models/userClass';
 
 @Component({
   selector: 'app-social',
@@ -11,6 +10,7 @@ import { Activity } from 'src/app/models/activityClass';
 })
 export class SocialComponent implements OnInit {
 
+  userInfos: User = new User('', '', '', '', 0);
   activities: Activity[] = [];
   publicActivities: Activity[] = [];
 
@@ -19,6 +19,12 @@ export class SocialComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.serviceOfApi.getUserInfo().subscribe(
+      (infos) => {
+        this.userInfos = infos;
+      }
+    );
+
     this.serviceOfApi.getPublicDatas().subscribe(
       (returnedPublicActivites) => {
         for (const publicActivity of returnedPublicActivites) {
@@ -26,7 +32,8 @@ export class SocialComponent implements OnInit {
         }
       }
     );
-    console.log(this.publicActivities);
+
+
   }
 
 }

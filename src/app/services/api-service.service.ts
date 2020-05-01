@@ -29,6 +29,10 @@ export class ApiServiceService {
 
   constructor(private http: HttpClient) { }
 
+  getDataOfUsers(): Observable<any> {
+    return this.http.get<any>(this.BASE_URL + this.publicDatasURL);
+  }
+
   getUserInfo(): Observable<User> {
     return this.http.get<User>(this.BASE_URL + this.userInfoURL);
   }

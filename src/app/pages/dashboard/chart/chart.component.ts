@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ChartOptions, ChartType } from 'chart.js';
 import { Label } from 'ng2-charts';
 import { ApiServiceService } from 'src/app/services/api-service.service';
@@ -48,7 +48,9 @@ export class ChartComponent implements OnInit {
 
   activities: Activity[] = [];
 
-  constructor(private serviceOfApi: ApiServiceService) { }
+
+  constructor(private serviceOfApi: ApiServiceService) {
+  }
 
   ngOnInit(): void {
 
@@ -67,5 +69,4 @@ export class ChartComponent implements OnInit {
       }
     );
   }
-
 }
