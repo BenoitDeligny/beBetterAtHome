@@ -1,11 +1,3 @@
-<div class="chart">
-    <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"
-        [options]="pieChartOptions" [colors]="pieChartColors" [legend]="pieChartLegend">
-    </canvas>
-</div>
+<app-public-chart></app-public-chart>
 
-<div *ngFor="let publicActivity of publicActivities">
-    {{publicActivity.description}}
-    {{publicActivity.amountTraining}}
-</div>
 <a [routerLink]="['/dashboard']">Lien vers le Dashboard</a>

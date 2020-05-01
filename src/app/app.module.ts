@@ -10,6 +10,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { SocialComponent } from './pages/social/social.component';
 import { ChartComponent } from './pages/dashboard/chart/chart.component';
+import { PublicChartComponent } from './pages/public-chart/public-chart.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ChartComponent } from './pages/dashboard/chart/chart.component';
     LoginComponent,
     DashboardComponent,
     SocialComponent,
-    ChartComponent
+    ChartComponent,
+    PublicChartComponent
   ],
   imports: [
     BrowserModule,

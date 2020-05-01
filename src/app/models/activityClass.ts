@@ -2,10 +2,10 @@ export class Activity {
 
   constructor(
     public description: string,
-    public id?: number,
-    public isPublic?: boolean,
+    public isPublic: number,
     public dateReg?: string,
     public trainingOn?: number,
+    public id?: number,
   ) {
   }
 
