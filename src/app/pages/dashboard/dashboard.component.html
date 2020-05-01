@@ -1,6 +1,6 @@
 <div class="overallContainer">
   <div class="identity">
-    <h1>{{myUser.name}}</h1>
+    <h1>Bienvenue {{myUser.name}}</h1>
   </div>
   <div>
     <h2>My Dashboard</h2>
@@ -10,13 +10,12 @@
     <div>
       <table>
         <tr>
-          <th>ID</th>
-          <th>Activité</th>
-          <th>Temps de formation</th>
-          <th>Ajouter du temps</th>
+          <th>Nom</th>
+          <th>Temps total</th>
+          <th>Ajouter</th>
+          <th>Rendre public</th>
         </tr>
         <tr *ngFor="let activity of activities">
-          <td>{{activity.id}}</td>
           <td>
             {{activity.description}}
             <button type="button" (click)="editNameActivity(activity)">?</button>
@@ -25,6 +24,8 @@
           <td>
             <input [(ngModel)]="addedTime" type="number" min="0" max="6" placeholder="0">
             <button type="button" (click)="addTrainingTime(addedTime, activity.id)">+</button>
+          </td>
+          <td>
             <button type="button" (click)="isPublic(activity)">P</button>
           </td>
         </tr>
@@ -37,10 +38,13 @@
       <button type="button" *ngIf="buttonDisplay" (click)="addActivity()" class="addButton">Add</button>
       <button type="button" *ngIf="!buttonDisplay" (click)="sendNewName(nameAdded)" class="addButton">Edit</button>
     </div>
+
     <div>
       <app-chart></app-chart>
     </div>
+
     <button (click)="destroyThemAll()">DESTROY ALL</button>
   </div>
+  
   <a [routerLink]="['/social']">Lien vers la page Social</a>
 </div>

@@ -23,12 +23,30 @@ export class ChartComponent implements OnInit {
   public pieChartLegend = true;
   public pieChartColors = [
     {
-      backgroundColor: ['rgba(255,0,0,0.5)', 'rgba(0,255,0,0.5)', 'rgba(0,0,255,0.5)'],
+      backgroundColor: [
+        'rgba(255,0,0,1)',
+        'rgba(0,255,0,1)',
+        'rgba(0,0,255,1)',
+        'rgba(180,0,0,1)',
+        'rgba(0,180,0,1)',
+        'rgba(0,0,180,1)',
+        'rgba(255,255,0,1)',
+        'rgba(255,0,255,1)',
+        'rgba(0,255,255,1)',
+        'rgba(180,180,0,1)',
+        'rgba(0,180,180,1)',
+        'rgba(180,0,180,1)',
+        'rgba(120,0,0,1)',
+        'rgba(0,120,0,1)',
+        'rgba(0,0,120,1)',
+        'rgba(120,120,0,1)',
+        'rgba(120,0,120,1)',
+        'rgba(0,120,120,1)'
+      ],
     },
   ];
 
   activities: Activity[] = [];
-
 
   constructor(private serviceOfApi: ApiServiceService) { }
 
