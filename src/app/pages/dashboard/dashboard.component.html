@@ -15,8 +15,9 @@
           <th>Ajouter</th>
           <th>Rendre public</th>
         </tr>
-        <tr *ngFor="let activity of activities">
+        <tr *ngFor="let activity of activities, index as i">
           <td>
+            {{i + 1}}
             {{activity.description}}
             <button type="button" (click)="editNameActivity(activity)">?</button>
           </td>

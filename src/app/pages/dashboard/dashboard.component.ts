@@ -3,6 +3,7 @@ import { Activity } from 'src/app/models/activityClass';
 import { User } from 'src/app/models/userClass';
 import { ApiServiceService } from 'src/app/services/api-service.service';
 import { TimeAdded } from 'src/app/models/time-added';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,9 +14,7 @@ import { TimeAdded } from 'src/app/models/time-added';
 export class DashboardComponent implements OnInit {
 
 
-  constructor(private serviceOfApi: ApiServiceService) {}
-
-  // RELOAD CHART AFTER NGONINIT
+  constructor(private router: Router, private serviceOfApi: ApiServiceService) {}
 
   // Variable de récupération des valeurs
   myUser: User = new User('', '', '', '', 0);
@@ -29,6 +28,10 @@ export class DashboardComponent implements OnInit {
 
 
   ngOnInit(): void {
+
+    this.router.routeReuseStrategy.shouldReuseRoute = () => {
+      return false;
+    };
 
     // Récupération des infos Utilisateur
     this.serviceOfApi.getUserInfo().subscribe(
@@ -66,7 +69,7 @@ export class DashboardComponent implements OnInit {
     this.serviceOfApi.postAddTrainingTime(timeAdded).subscribe(
       (time) => {
         timeAdded = time;
-        this.ngOnInit();
+        this.router.navigateByUrl('/dashboard');
       }
     );
   }
@@ -77,7 +80,7 @@ export class DashboardComponent implements OnInit {
       this.currentActivity.description = this.nameAdded;
 
       this.serviceOfApi.postTraining(this.currentActivity).subscribe(() => {
-        this.ngOnInit();
+        this.router.navigateByUrl('/dashboard');
       });
       this.nameAdded = '';
     }
@@ -94,7 +97,7 @@ export class DashboardComponent implements OnInit {
     this.serviceOfApi.editActivity(this.currentActivity).subscribe(
       () => {
         this.buttonDisplay = true;
-        this.ngOnInit();
+        this.router.navigateByUrl('/dashboard');
       }
     );
   }
@@ -108,7 +111,7 @@ export class DashboardComponent implements OnInit {
     }
     this.serviceOfApi.editActivity(activity).subscribe(
       () => {
-        this.ngOnInit();
+        this.router.navigateByUrl('/dashboard');
       }
     );
   }
@@ -116,6 +119,6 @@ export class DashboardComponent implements OnInit {
   // supprimer toutes les activités
   destroyThemAll() {
     this.serviceOfApi.destroy().subscribe();
-    this.ngOnInit();
+    this.router.navigateByUrl('/dashboard');
   }
 }
