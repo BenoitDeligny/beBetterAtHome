@@ -14,6 +14,10 @@ export class SocialComponent implements OnInit {
   activities: Activity[] = [];
   publicActivities: Activity[] = [];
 
+  publicCharts: any[] = [];
+  activityByPublicId: Activity[] = [];
+
+
   constructor(private serviceOfApi: ApiServiceService) { }
 
 
@@ -30,7 +34,10 @@ export class SocialComponent implements OnInit {
         for (const publicActivity of returnedPublicActivites) {
           this.publicActivities.push(publicActivity);
         }
+        console.log(this.publicActivities);
       }
+
+
     );
 
 

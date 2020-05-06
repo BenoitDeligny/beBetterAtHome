@@ -23,8 +23,8 @@
           </td>
           <td class="addTimeSpent">{{activity.trainingOn}} h</td>
           <td>
-            <input [(ngModel)]="addedTime" type="number" min="0" max="6" placeholder="0">
-            <button type="button" (click)="addTrainingTime(addedTime, activity.id)">+</button>
+            <input [(ngModel)]="activity.addedTime" type="number" min="0" max="6" placeholder="0">
+            <button type="button" (click)="addTrainingTime(activity.addedTime, activity.id)">+</button>
           </td>
           <td>
             <button type="button" (click)="isPublic(activity)">P</button>

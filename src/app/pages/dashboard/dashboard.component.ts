@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Activity } from 'src/app/models/activityClass';
 import { User } from 'src/app/models/userClass';
 import { ApiServiceService } from 'src/app/services/api-service.service';
@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 export class DashboardComponent implements OnInit {
 
 
-  constructor(private router: Router, private serviceOfApi: ApiServiceService) {}
+  constructor(private router: Router, private serviceOfApi: ApiServiceService) { }
 
   // Variable de récupération des valeurs
   myUser: User = new User('', '', '', '', 0);
