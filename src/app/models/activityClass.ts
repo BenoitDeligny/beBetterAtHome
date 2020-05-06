@@ -7,7 +7,8 @@ export class Activity {
     public trainingOn?: number,
     public addedTime?: number,
     public id?: number,
-    public publicId?: number
+    public publicId?: number,
+    public amountTraining?: number
   ) {
   }
 

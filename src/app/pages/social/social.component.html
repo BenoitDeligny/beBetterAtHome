@@ -1,8 +1,7 @@
 <p>Bienvenue {{userInfos.name}}</p>
 
-<app-public-chart></app-public-chart>
-
-<div>
+<div *ngFor="let user of users, index as i">
+    <app-public-chart [user]="user"></app-public-chart>
 </div>
 
 

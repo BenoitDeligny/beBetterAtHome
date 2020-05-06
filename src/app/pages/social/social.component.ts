@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ApiServiceService } from 'src/app/services/api-service.service';
 import { Activity } from 'src/app/models/activityClass';
 import { User } from 'src/app/models/userClass';
@@ -11,11 +11,10 @@ import { User } from 'src/app/models/userClass';
 export class SocialComponent implements OnInit {
 
   userInfos: User = new User('', '', '', '', 0);
-  activities: Activity[] = [];
   publicActivities: Activity[] = [];
 
-  publicCharts: any[] = [];
-  activityByPublicId: Activity[] = [];
+  currentId = -1;
+  users: any[] = [];
 
 
   constructor(private serviceOfApi: ApiServiceService) { }
@@ -33,8 +32,12 @@ export class SocialComponent implements OnInit {
       (returnedPublicActivites) => {
         for (const publicActivity of returnedPublicActivites) {
           this.publicActivities.push(publicActivity);
+
+          if (publicActivity.publicId !== this.currentId) {
+            this.currentId = publicActivity.publicId;
+            this.users.push(this.currentId);
+          }
         }
-        console.log(this.publicActivities);
       }
 
 

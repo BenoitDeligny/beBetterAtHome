@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ApiServiceService } from 'src/app/services/api-service.service';
 import { ChartOptions, ChartType } from 'chart.js';
 import { Label } from 'ng2-charts';
@@ -11,10 +11,12 @@ import { Activity } from 'src/app/models/activityClass';
 })
 export class PublicChartComponent implements OnInit {
 
+  @Input() user = 0;
+
   public pieChartOptions: ChartOptions = {
     responsive: true,
     legend: {
-      position: 'top',
+    position: 'top',
     }
   };
   public pieChartLabels: Label[] = [];
@@ -51,17 +53,12 @@ export class PublicChartComponent implements OnInit {
   constructor(private serviceOfApi: ApiServiceService) { }
 
   ngOnInit(): void {
-    this.serviceOfApi.getActivities().subscribe(
+    this.serviceOfApi.getPublicDatas().subscribe(
       (returnedActivities) => {
         for (const activity of returnedActivities) {
-          if (activity.isPublic === 1) {
-            this.serviceOfApi.getActivityTimeTraining(activity.id).subscribe(
-              (time) => {
-                activity.trainingOn = time.resultat;
-                this.pieChartLabels.push(activity.description);
-                this.pieChartData.push(activity.trainingOn);
-              }
-            );
+          if (activity.publicId === this.user) {
+            this.pieChartLabels.push(activity.description);
+            this.pieChartData.push(activity.amountTraining);
           }
         }
         this.activities = returnedActivities;
