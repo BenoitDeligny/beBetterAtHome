@@ -10,7 +10,7 @@ import { User } from 'src/app/models/userClass';
 })
 export class SocialComponent implements OnInit {
 
-  userInfos: User = new User('', '', '', '', 0);
+  currentUser: User = new User('', '', '', '', 0, 0);
   publicActivities: Activity[] = [];
 
   currentId = -1;
@@ -24,7 +24,7 @@ export class SocialComponent implements OnInit {
 
     this.serviceOfApi.getUserInfo().subscribe(
       (infos) => {
-        this.userInfos = infos;
+        this.currentUser = infos;
       }
     );
 
@@ -32,7 +32,6 @@ export class SocialComponent implements OnInit {
       (returnedPublicActivites) => {
         for (const publicActivity of returnedPublicActivites) {
           this.publicActivities.push(publicActivity);
-
           if (publicActivity.publicId !== this.currentId) {
             this.currentId = publicActivity.publicId;
             this.users.push(this.currentId);

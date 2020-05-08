@@ -1,25 +1,25 @@
 <div class="overallContainer">
   <div class="identity">
     <h1>Bienvenue {{myUser.name}}</h1>
+    <a [routerLink]="['/social']">Accéder aux activités réçentes d'autres utilisateurs</a>
   </div>
   <div>
-    <h2>My Dashboard</h2>
+    <h2>Tableau de bord</h2>
   </div>
 
   <div class="board">
     <div>
       <table>
         <tr>
-          <th>Nom</th>
+          <th>Activité</th>
           <th>Temps total</th>
-          <th>Ajouter</th>
+          <th>Entrainement</th>
           <th>Rendre public</th>
         </tr>
         <tr *ngFor="let activity of activities, index as i">
           <td>
-            {{i + 1}}
             {{activity.description}}
-            <button type="button" (click)="editNameActivity(activity)">?</button>
+            <img src="assets/img/editing-pencil_icon-icons.com_68219.svg" (click)="editNameActivity(activity)">
           </td>
           <td class="addTimeSpent">{{activity.trainingOn}} h</td>
           <td>
@@ -27,25 +27,24 @@
             <button type="button" (click)="addTrainingTime(activity.addedTime, activity.id)">+</button>
           </td>
           <td>
-            <button type="button" (click)="isPublic(activity)">P</button>
+            <img *ngIf="activity.isPublic === 1" src="assets/img/checkbocFull.png" (click)="isPublic(activity)">
+            <img *ngIf="activity.isPublic === 0" src="assets/img/checkboxEmpty.png" (click)="isPublic(activity)">
           </td>
         </tr>
       </table>
     </div>
 
     <div class="addAct">
-      <label for="addActivity">New activity: </label>
-      <input [(ngModel)]='nameAdded' type="text" name="addActivity" placeholder="Name of your activity">
-      <button type="button" *ngIf="buttonDisplay" (click)="addActivity()" class="addButton">Add</button>
-      <button type="button" *ngIf="!buttonDisplay" (click)="sendNewName(nameAdded)" class="addButton">Edit</button>
+      <label for="addActivity" (click)="buttonDisplay = true; nameAdded = ''">Ajouter une Activité: </label>
+      <input [(ngModel)]='nameAdded' type="text" name="addActivity" placeholder="Nom de l'activité">
+      <button type="button" *ngIf="buttonDisplay" (click)="addActivity()" class="addButton">Ajouter</button>
+      <button type="button" *ngIf="!buttonDisplay" (click)="sendNewName(nameAdded)" class="addButton">Editer</button>
     </div>
 
     <div>
       <app-chart ></app-chart>
     </div>
 
-    <button (click)="destroyThemAll()">DESTROY ALL</button>
   </div>
   
-  <a [routerLink]="['/social']">Lien vers la page Social</a>
 </div>

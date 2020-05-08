@@ -4,6 +4,7 @@ export class User {
     public name: string,
     public surname: string,
     public dateReg: string,
+    public publicId: number,
     public dailyTraining: number)  {
     }
 }

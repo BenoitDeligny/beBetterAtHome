@@ -3,6 +3,7 @@ import { ApiServiceService } from 'src/app/services/api-service.service';
 import { ChartOptions, ChartType } from 'chart.js';
 import { Label } from 'ng2-charts';
 import { Activity } from 'src/app/models/activityClass';
+import { User } from 'src/app/models/userClass';
 
 @Component({
   selector: 'app-public-chart',
@@ -53,6 +54,7 @@ export class PublicChartComponent implements OnInit {
   constructor(private serviceOfApi: ApiServiceService) { }
 
   ngOnInit(): void {
+
     this.serviceOfApi.getPublicDatas().subscribe(
       (returnedActivities) => {
         for (const activity of returnedActivities) {

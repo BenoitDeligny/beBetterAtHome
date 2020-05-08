@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
   constructor(private router: Router, private serviceOfApi: ApiServiceService) { }
 
   // Variable de récupération des valeurs
-  myUser: User = new User('', '', '', '', 0);
+  myUser: User = new User('', '', '', '', 0, 0);
   myDailyTraining = 0;
   activities: Activity[] = [];
   currentActivity: Activity = new Activity('', 0);
@@ -60,6 +60,7 @@ export class DashboardComponent implements OnInit {
         this.myDailyTraining = dailyTraining.resultat;
       }
     );
+
   }
 
 

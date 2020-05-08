@@ -1,8 +1,17 @@
-<p>Bienvenue {{userInfos.name}}</p>
+<div class="overallContainer">
+    <div class="header">
+        <h1>Bienvenue {{currentUser.name}}</h1>
+        <a [routerLink]="['/dashboard']">Retour vers mon tableau de bord</a>
+    </div>
 
-<div *ngFor="let user of users, index as i">
-    <app-public-chart [user]="user"></app-public-chart>
+    <app-public-chart [user]="currentUser.publicId"></app-public-chart>
+
+    <h2>Activités publiques réçentes</h2>
+
+    <div class="charts">
+        <div *ngFor="let user of users, index as i">
+            <app-public-chart [user]="user"></app-public-chart>
+        </div>
+    </div>
+    
 </div>
-
-
-<a [routerLink]="['/dashboard']">Lien vers le Dashboard</a>

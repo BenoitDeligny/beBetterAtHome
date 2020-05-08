@@ -1,3 +1,35 @@
-.chart {
-    width: 500px;
+.overallContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+}
+
+h1 {
+    font-size: 40px;
+    color: #552FAB;
+    margin: 5px;
+}
+
+h2 {
+    font-size: 30px;
+    color: #552FAB;
+    margin: 15px;
+}
+
+.charts {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 20px;
+    padding: 5px;
+    width: 100%;
 }

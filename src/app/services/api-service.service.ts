@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Activity } from '../models/activityClass';
 import { User } from '../models/userClass';
 import { TimeAdded } from '../models/time-added';
+import { catchError, tap } from 'rxjs/operators';
 
 
 @Injectable({
@@ -53,8 +54,24 @@ export class ApiServiceService {
     return this.http.post<Activity>(this.BASE_URL + this.createActivityURL, newTraining);
   }
 
+  private handleError(operation: string) {
+    return (err: any) => {
+        const errMsg = `error in ${operation}() retrieving ${this.BASE_URL + this.addTrainingOnActivityURL}`;
+        console.log(`${errMsg}:`, err);
+        if (err instanceof HttpErrorResponse) {
+            console.log(`status: ${err.status}, ${err.statusText}`);
+            alert(`Rappel: Votre entrainement n'a pas été enregistré.\r\nVous ne pouvez pas ajouter plus de 6 heures d'entrainement durant les 6 dernières heures écoulées.`);
+        }
+        return Observable.throw(errMsg);
+    };
+  }
+
   postAddTrainingTime(timeAdded: TimeAdded): Observable<TimeAdded> {
-    return this.http.post<TimeAdded>(this.BASE_URL + this.addTrainingOnActivityURL, timeAdded);
+    return this.http.post<TimeAdded>(this.BASE_URL + this.addTrainingOnActivityURL, timeAdded)
+    .pipe(
+      tap((data) => console.log('server data:', data)),
+      catchError(this.handleError('Saisie utilisateur rejetée'))
+    );
   }
 
   editActivity(activity: Activity): Observable<Activity> {
