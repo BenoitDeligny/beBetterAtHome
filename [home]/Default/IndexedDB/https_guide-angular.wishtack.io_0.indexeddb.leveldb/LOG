@@ -1,0 +1,5 @@
+2020/05/05-23:28:31.035 30eb Reusing MANIFEST /home/couettou/Documents/Dev++/Perso/beBetterAtHome/[home]/Default/IndexedDB/https_guide-angular.wishtack.io_0.indexeddb.leveldb/MANIFEST-000001
+2020/05/05-23:30:56.475 3150 Level-0 table #5: started
+2020/05/05-23:30:56.483 3150 Level-0 table #5: 1136 bytes OK
+2020/05/05-23:30:56.485 3150 Delete type=0 #3
+2020/05/05-23:30:56.486 3150 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

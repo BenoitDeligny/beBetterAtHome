@@ -12,7 +12,7 @@ import { catchError, tap } from 'rxjs/operators';
 })
 export class ApiServiceService {
 
-  BASE_URL = 'https://www.dataxchange.fr/BHome/api/';
+  BASE_URL = 'https://www.meilleurchezsoi.fr/BHome/api/';
 
   // GET links
   dailyTrainingURL = 'getInfo/formationquotidienne'; // return {"resultat" : number} PARAM: user ?

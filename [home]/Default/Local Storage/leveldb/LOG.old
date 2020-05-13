@@ -1,3 +1,6 @@
-2020/05/03-21:12:27.601 34f Reusing MANIFEST /home/couettou/Documents/Dev++/Perso/beBetterAtHome/[home]/Default/Local Storage/leveldb/MANIFEST-000001
-2020/05/03-21:12:27.601 34f Recovering log #7
-2020/05/03-21:12:27.602 34f Reusing old log /home/couettou/Documents/Dev++/Perso/beBetterAtHome/[home]/Default/Local Storage/leveldb/000007.log 
+2020/05/08-14:56:09.836 e61 Reusing MANIFEST /home/couettou/Documents/Dev++/Perso/beBetterAtHome/[home]/Default/Local Storage/leveldb/MANIFEST-000001
+2020/05/08-14:56:09.836 e61 Recovering log #7
+2020/05/08-14:56:09.857 e61 Reusing old log /home/couettou/Documents/Dev++/Perso/beBetterAtHome/[home]/Default/Local Storage/leveldb/000007.log 
+2020/05/08-15:05:16.708 14d7 Level-0 table #11: started
+2020/05/08-15:05:16.718 14d7 Level-0 table #11: 41170 bytes OK
+2020/05/08-15:05:16.724 14d7 Delete type=0 #7

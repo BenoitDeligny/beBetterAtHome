@@ -1,0 +1,8 @@
+2020/05/08-16:55:47.431 2b8b Reusing MANIFEST /home/couettou/Documents/Dev++/Perso/beBetterAtHome/[home]/Default/IndexedDB/https_tpc.googlesyndication.com_0.indexeddb.leveldb/MANIFEST-000001
+2020/05/08-16:55:47.431 2b8b Recovering log #16
+2020/05/08-16:55:47.431 2b8b Reusing old log /home/couettou/Documents/Dev++/Perso/beBetterAtHome/[home]/Default/IndexedDB/https_tpc.googlesyndication.com_0.indexeddb.leveldb/000016.log 
+2020/05/08-16:55:49.895 2a75 Level-0 table #20: started
+2020/05/08-16:55:49.895 2a75 Level-0 table #20: 0 bytes OK
+2020/05/08-16:55:49.905 2a75 Delete type=0 #16
+2020/05/08-16:55:49.906 2a75 Manual compaction at level-0 from (begin) .. (end); will stop at (end)
+2020/05/08-16:55:49.906 2a75 Manual compaction at level-1 from (begin) .. (end); will stop at (end)
